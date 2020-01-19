@@ -17,7 +17,7 @@
 
 * 问题及优化
 
-  lambda-introduce/lambda-introduce/com.imooc.lambda.ThreadImpl
+  lambda-toturial/lambda-introduce/com.imooc.lambda.ThreadImpl
 
 * 为什么要用 Lambda
 
@@ -28,12 +28,15 @@
 ### Lambda 基础
 
 * 函数式接口（functional interface）
+  
   * 就是 Java 类型系统中的接口
   * 只包含一个接口方法的特殊接口
   * 语义化检测注解 @FunctionalInterface
   * 默认接口方法
   * 静态接口方法
   * 函数式接口，只包含一个操作方法；Lambda 表达式，只能操作一个方法；Java 中的 Lambda 表达式，核心就是一个函数式接口的实现
+  * lambda-toturial/lambda-basis/com.imooc.lambda.IMessageFormat 和 lambda-toturial/lambda-basis/com.imooc.lambda.IUserCredential
+  
 * 常见的函数接口
   * Runnable / Comparable / Comparator / FileFilter / ...
   * JDK8 提供了 java.util.function 包，提供了常用的函数式功能接口
@@ -43,15 +46,37 @@
   * Supplier\<T\> 不接受参数，提供 T 对象的创建工厂
   * UnaryOperator\<T\> 接受参数对象 T，返回结果对象 T
   * BinaryOperator\<T\> 接受两个参数对象 T，返回一个结果对象 T
+  * lambda-toturial/lambda-basis/com.imooc.App
+  
 * Lambda 基本语法
-  * [接口声明] = (参数) -> {执行代码块};
+  * \[接口声明\] = (参数) -> {执行代码块};
   * 声明：lambda 表达式绑定的接口类型
   * 参数：包含在 () 中，和绑定接口中的抽象方法的参数类型、个数及顺序一致，参数类型可以不指定
   * 操作符：“->”
   * 执行代码块：包含在 {} 中，出现在操作符的右侧，如果只有一行，可以省略 {} 和 return
+  * lambda-toturial/lambda-basis/com.imooc.App
+  
 * 变量捕获
+
+  * 匿名内部类中的变量捕获（this 表示当前内部类的对象）
+  * Lambda 表达式中的变量捕获（this 表示所属方法所在类的对象）
+  * lambda-toturial/lambda-basis/com.imooc.Variable
+
 * 类型检查
+
+  * 表达式类型检查
+  * 参数类型检查
+  * lambda-toturial/lambda-basis/com.imooc.TypeCheck
+
+* 方法重载
+
+  lambda-toturial/lambda-basis/com.imooc.LambdaOverride
+
 * Lambda 运行原理
+
+  * Lambda 表达式在 JVM 底层解析成私有静态方法（lambda$main$0）和匿名内部类（LambdaAnalysis$$Lambda$1）
+  * 通过调用匿名内部类中的接口方法，调用私有静态方法，完成 Lambda 表达式的执行
+  * lambda-toturial/lambda-basis/com/imooc/LambdaAnalysis.java
 
 ### Lambda 高级
 
