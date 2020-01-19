@@ -84,6 +84,45 @@ public class App {
             return a > b ? a : b;
         };
         System.out.println(binaryOperator.apply(5, 10));
+
+        ILambdaWithoutParamAndResult lambdaWithoutParamAndResult = () -> {
+            System.out.println("Without param and result");
+        };
+        lambdaWithoutParamAndResult.test();
+
+        lambdaWithoutParamAndResult = () -> System.out.println("Without param and result simplify");
+        lambdaWithoutParamAndResult.test();
+
+        ILambdaWithParamButWithoutResult lambdaWithParamButWithoutResult = (String param) -> {
+            System.out.println("With param but without result, param is: " + param);
+        };
+        lambdaWithParamButWithoutResult.test("Hello World");
+
+        lambdaWithParamButWithoutResult = (param) -> {
+            System.out.println("With param but without result simplify, param is: " + param);
+        };
+        lambdaWithParamButWithoutResult.test("Hello World");
+
+        ILambdaWithParamAndResult lambdaWithParamAndResult = (param) -> {
+            int result = param * 2 + 1;
+            return result;
+        };
+        System.out.println("With param and result, result is: " + lambdaWithParamAndResult.test(5));
+
+        lambdaWithParamAndResult = (param) -> param * 2 + 1;
+        System.out.println("With param and result simplify, result is: " + lambdaWithParamAndResult.test(5));
+    }
+
+    interface ILambdaWithoutParamAndResult {
+        void test();
+    }
+
+    interface ILambdaWithParamButWithoutResult {
+        void test(String param);
+    }
+
+    interface ILambdaWithParamAndResult {
+        int test(int param);
     }
 
 }
