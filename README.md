@@ -81,8 +81,29 @@
 ### Lambda 高级
 
 * 方法引用
+
+  * 方法引用是结合 Lambda 表达式的一种语法特性
+
+  * 静态方法引用
+
+    类名.方法名() -> 类名::方法名
+
+  * 实例方法引用
+
+    对象名.方法名() -> 对象名::方法名
+
+  * 构造方法引用
+
+    绑定函数式接口
+
+  * lambda-toturial/lambda-advanced/com.imooc.lambda.MethodReference
+
 * Stream API
+
 * Stream 原理
+
 * 集合元素操作
+
 * 实际需求重构
+
 * 线程安全与性能
