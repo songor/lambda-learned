@@ -100,9 +100,49 @@
 
 * Stream API
 
-* Stream 原理
+  * Stream 聚合操作
 
-* 集合元素操作
+    * 类型转换（其他类型 -> Stream）
+    * 类型转换（Stream -> 其他类型）
+    * 基本数据类型的功能封装
+
+  * Stream 处理流程
+
+    数据源 -> 数据转换 -> 获取结果
+
+  * 获取 Stream 对象
+
+    * 从集合或者数组中获取
+
+      Collection.stream() / Collection.parallelStream() / Arrays.stream(T t)
+
+    * BufferedReader.lines() / Files.lines()
+
+    * java.util.stream.*
+
+      IntStream.range()
+
+    * java.util.Spliterator
+
+    * 其它
+
+      Random.ints() / Pattern.splitAsStream()
+
+  * 中间操作（intermediate）
+
+    返回一个 Stream，可以有一个或多个连续的中间操作；需要注意的是，中间操作只记录操作方式，不做具体的执行，直到结束操作发生时，才做数据的最终执行；中间操作就是业务逻辑处理
+
+    中间操作过程（是否受前置中间操作的影响）：无状态（map / filter / peek / parallel / sequential / unordered）、有状态（distinct / sorted / limit / skip）
+
+  * 终结操作（terminal）
+
+    一个 Stream 只能有一个终结操作，这个操作一旦发生，就会真实处理数据，生成对应的处理结果
+
+    终结操作过程：非短路操作（处理完集合中的所有数据，才能得到处理结果，forEach / forEachOrdered / toArray / reduce / collect / min / max / count / iterator）、短路操作（一旦满足某个条件，就可以得到结果，anyMatch / allMatch / noneMatch / findFirst / findAny / ...）
+
+  * lambda-toturial/lambda-advanced/com.imooc.lambda.StreamAPI
+
+* Stream 原理
 
 * 实际需求重构
 
