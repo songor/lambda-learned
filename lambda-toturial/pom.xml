@@ -12,6 +12,7 @@
         <module>lambda-introduce</module>
         <module>lambda-basis</module>
         <module>lambda-advanced</module>
+        <module>lambda-application</module>
     </modules>
 
 </project>

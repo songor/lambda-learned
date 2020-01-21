@@ -143,8 +143,14 @@
 
   * lambda-toturial/lambda-advanced/com.imooc.lambda.StreamAPI
 
-* Stream 原理
-
 * 实际需求重构
 
+  策略模式 IStrategy -> 高度封装数据接口，将业务的处理逻辑上移，交给数据调用者，而数据提供者只需要管理数据接口即可，实现数据逻辑和业务逻辑的解耦合
+
+  lambda-toturial/lambda-advanced/com.imooc.App
+
 * 线程安全与性能
+
+  lambda-toturial/lambda-application/com.imooc.App
+
+  lambda-toturial/lambda-application/com.imooc.lambda.ThreadSafe
