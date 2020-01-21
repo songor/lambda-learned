@@ -85,6 +85,52 @@ public class StreamAPI {
         System.out.println("MapValue: " + mapValue);
         Map<String, Integer> mapEntry = mapEntryStream.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
         System.out.println("MapEntry: " + mapEntry);
+
+        /**
+         * API
+         */
+        List<String> accountList = new ArrayList<>();
+        accountList.add("Tom");
+        accountList.add("Jerry");
+        accountList.add("Peter");
+        accountList.add("Leslie");
+        accountList.add("Jagger");
+        accountList.add("Repeated");
+        accountList.add("Repeated");
+
+        // map()
+        System.out.println(accountList.stream().map(account -> "User-" + account).collect(Collectors.toList()));
+
+        // filter()
+        System.out.println(accountList.stream().filter(account -> account.length() > 5).collect(Collectors.toList()));
+
+        // forEach()
+        accountList.forEach(System.out::println);
+
+        // peek()
+        accountList.stream().peek(account -> System.out.println("User-" + account))
+                .peek(account -> System.out.println("Admin-" + account)).forEach(System.out::println);
+
+        // skip()
+        System.out.println(accountList.stream().skip(3).collect(Collectors.toList()));
+
+        // limit()
+        System.out.println(accountList.stream().limit(3).collect(Collectors.toList()));
+
+        // distinct()
+        System.out.println(accountList.stream().distinct().collect(Collectors.toList()));
+
+        // sorted()
+        System.out.println(Stream.of(1, 3, 2, 6, 5).sorted().collect(Collectors.toList()));
+
+        // max()
+        System.out.println(Stream.of(1, 3, 2, 6, 5).max(Comparator.comparingInt(x -> x)).get());
+
+        // min()
+        System.out.println(Stream.of(1, 3, 2, 6, 5).min(Comparator.comparingInt(x -> x)).get());
+
+        // reduce()
+        System.out.println(Stream.of(1, 3, 2, 6, 5).reduce((sum, num) -> sum + num).get());
     }
 
 }

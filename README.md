@@ -105,6 +105,7 @@
     * 类型转换（其他类型 -> Stream）
     * 类型转换（Stream -> 其他类型）
     * 基本数据类型的功能封装
+    * map / filter / forEach / peek / skip / limit / distinct / sorted / max / min / reduce
 
   * Stream 处理流程
 
